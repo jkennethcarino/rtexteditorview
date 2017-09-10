@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RTextEditorButton">
+        <attr name="toolType" format="enum">
+            <enum name="none" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="underline" value="3" />
+            <enum name="strikethrough" value="4" />
+            <enum name="removeFormat" value="5" />
+            <enum name="normal" value="6" />
+            <enum name="h1" value="7" />
+            <enum name="h2" value="8" />
+            <enum name="h3" value="9" />
+            <enum name="h4" value="10" />
+            <enum name="h5" value="11" />
+            <enum name="h6" value="12" />
+            <enum name="superscript" value="13" />
+            <enum name="subscript" value="14" />
+            <enum name="textForeColor" value="15" />
+            <enum name="textBackColor" value="16" />
+            <enum name="blockCode" value="17" />
+            <enum name="unordered" value="18" />
+            <enum name="ordered" value="19" />
+            <enum name="blockQuote" value="20" />
+            <enum name="alignLeft" value="21" />
+            <enum name="alignCenter" value="22" />
+            <enum name="alignRight" value="23" />
+            <enum name="alignJustify" value="24" />
+            <enum name="horizontalRule" value="25" />
+            <enum name="indent" value="26" />
+            <enum name="outdent" value="27" />
+            <enum name="table" value="28" />
+            <enum name="link" value="29" />
+            <enum name="unlink" value="30" />
+            <enum name="clear" value="31" />
+            <enum name="editHtml" value="32" />
+        </attr>
+    </declare-styleable>
+</resources>

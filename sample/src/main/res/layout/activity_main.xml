@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jkcarino.rtexteditorview.RTextEditorView
+        android:id="@+id/editor_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/toolbar_line"
+        android:layout_alignParentTop="true" />
+
+    <View
+        android:id="@+id/toolbar_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/toolbar_scrollview"
+        android:background="#cccccc" />
+
+    <HorizontalScrollView
+        android:id="@+id/toolbar_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="horizontal">
+
+        <com.jkcarino.rtexteditorview.RTextEditorToolbar
+            android:id="@+id/editor_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_bold"
+                app:toolType="bold" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_italic"
+                app:toolType="italic" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_underlined"
+                app:toolType="underline" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_strikethrough"
+                app:toolType="strikethrough" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_clear"
+                app:toolType="removeFormat" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_normal"
+                app:toolType="normal" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_h1"
+                app:toolType="h1" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_h2"
+                app:toolType="h2" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_h3"
+                app:toolType="h3" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_h4"
+                app:toolType="h4" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_h5"
+                app:toolType="h5" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_h6"
+                app:toolType="h6" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_superscript"
+                app:toolType="superscript" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_subscript"
+                app:toolType="subscript" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:id="@+id/text_fore_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_color_text"
+                app:toolType="textForeColor" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:id="@+id/text_back_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_color_fill"
+                app:toolType="textBackColor" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_list_bulleted"
+                app:toolType="unordered" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_list_numbered"
+                app:toolType="ordered" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_quote"
+                app:toolType="blockQuote" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_code"
+                app:toolType="blockCode" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_align_left"
+                app:toolType="alignLeft" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_align_center"
+                app:toolType="alignCenter" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:id="@+id/format_align_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_align_right"
+                app:toolType="alignRight" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_align_justify"
+                app:toolType="alignJustify" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_insert_line"
+                app:toolType="horizontalRule" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_indent_increase"
+                app:toolType="indent" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_format_indent_decrease"
+                app:toolType="outdent" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:id="@+id/insert_table"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_insert_table"
+                app:toolType="table" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:id="@+id/insert_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_insert_link"
+                app:toolType="link" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_insert_link_off"
+                app:toolType="unlink" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_clear"
+                app:toolType="clear" />
+
+            <com.jkcarino.rtexteditorview.RTextEditorButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="@dimen/toolbar_item_padding"
+                app:srcCompat="@drawable/ic_view_code"
+                app:toolType="editHtml" />
+        </com.jkcarino.rtexteditorview.RTextEditorToolbar>
+    </HorizontalScrollView>
+</RelativeLayout>

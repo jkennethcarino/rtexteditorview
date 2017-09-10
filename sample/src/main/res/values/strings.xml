@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">RTextEditorView</string>
+
+    <string name="action_undo">Undo</string>
+    <string name="action_redo">Redo</string>
+    <string name="insert">Insert</string>
+
+    <string name="dialog_title_text_color">Select a Text Color</string>
+    <string name="dialog_title_text_back_color">Select a Text Background Color</string>
+
+    <!-- Insert Table -->
+    <string name="title_insert_table">Insert Table</string>
+    <string name="hint_no_of_columns">Number of columns</string>
+    <string name="hint_no_of_rows">Number of rows</string>
+
+    <!-- Insert Link -->
+    <string name="title_insert_link">Insert Link</string>
+    <string name="hint_text_to_display">Text to display</string>
+    <string name="hint_link_to">Link to</string>
+</resources>

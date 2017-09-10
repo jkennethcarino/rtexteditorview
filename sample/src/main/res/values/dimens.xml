@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_item_padding">16dp</dimen>
+    <dimen name="item_vertical_margin">16dp</dimen>
+    <dimen name="dialog_content_horizontal_padding">24dp</dimen>
+    <dimen name="dialog_content_top_padding">20dp</dimen>
+    <dimen name="dialog_content_bottom_padding">24dp</dimen>
+</resources>
