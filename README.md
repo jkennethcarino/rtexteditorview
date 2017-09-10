@@ -1,6 +1,7 @@
 RTextEditorView
 ======
 [![JitPack][jitpackbadge-svg]][jitpackbadge] [![License: MIT][mitbadge-svg]][mitbadge]
+
 A simple WYSIWYG Editor for Android, based on [Summernote][summernote].
 
 Screenshots
@@ -75,6 +76,8 @@ RTextEditorView requires at minimum Android 4.0.3 (API Level 15).
 Usage
 ------
 
+XML Usage:
+
 ```xml
 <!-- Set up our main editor -->
 <com.jkcarino.rtexteditorview.RTextEditorView
@@ -109,6 +112,8 @@ Usage
 </com.jkcarino.rtexteditorview.RTextEditorToolbar>
 ```
 
+Java usage:
+
 ```java
 RTextEditorView editor = (RTextEditorView) findViewById(R.id.editor_view);
 
@@ -119,7 +124,7 @@ editorToolbar.setEditorView(editor);
 
 And you're good to go!
 
-Or you can implement your own toolbar, or just a simple `Button`:
+Or you can implement your own toolbar, or just use a simple `Button`:
 
 ```java
 Button boldButton = (Button) findViewById(R.id.format_bold);
