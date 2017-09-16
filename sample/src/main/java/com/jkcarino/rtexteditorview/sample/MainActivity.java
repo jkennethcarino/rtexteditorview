@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements ColorPickerDialog
         RTextEditorToolbar editorToolbar = findViewById(R.id.editor_toolbar);
         editorToolbar.setEditorView(editor);
 
+        // Set initial content
+        editor.setHtml("<p><b><i><u><strike>"
+                + "The quick brown fox jumps over the lazy dog."
+                + "</strike></u></i></b></p>");
+
         // Listen to the editor's text changes
         editor.setOnTextChangeListener(new RTextEditorView.OnTextChangeListener() {
             @Override
