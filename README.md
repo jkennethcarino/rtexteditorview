@@ -1,8 +1,8 @@
 RTextEditorView
 ======
-[![JitPack][jitpackbadge-svg]][jitpackbadge] [![License: MIT][mitbadge-svg]][mitbadge]
+[![Android Arsenal][android-arsenal-svg]][android-arsenal] [![JitPack][jitpackbadge-svg]][jitpackbadge] [![License: MIT][mitbadge-svg]][mitbadge]
 
-A simple WYSIWYG Editor for Android, based on [Summernote][summernote].
+A simple WYSIWYG Editor for Android based on [Summernote][summernote].
 
 Screenshots
 ------
@@ -48,7 +48,7 @@ Features
 Download
 ------
 
-Download the [latest AAR](https://github.com/jkennethcarino/RTextEditorView/releases) or grab via Gradle:
+Download the [latest AAR][rtexteditorview-releases] or grab via Gradle:
 
 **Step 1.** Add the JitPack repository to your build file
 
@@ -76,10 +76,10 @@ RTextEditorView requires at minimum Android 4.0.3 (API Level 15).
 Usage
 ------
 
-XML Usage:
+**XML usage:**
 
 ```xml
-<!-- Set up our main editor -->
+<!-- Set up the main editor -->
 <com.jkcarino.rtexteditorview.RTextEditorView
     android:id="@+id/editor_view"
     android:layout_width="match_parent"
@@ -112,7 +112,7 @@ XML Usage:
 </com.jkcarino.rtexteditorview.RTextEditorToolbar>
 ```
 
-Java usage:
+**Java usage:**
 
 ```java
 RTextEditorView editor = (RTextEditorView) findViewById(R.id.editor_view);
@@ -124,7 +124,7 @@ editorToolbar.setEditorView(editor);
 
 And you're good to go!
 
-Or you can implement your own toolbar, or just use a simple `Button`:
+You can implement your own toolbar, or just use a simple `Button`:
 
 ```java
 Button boldButton = (Button) findViewById(R.id.format_bold);
@@ -136,13 +136,26 @@ boldButton.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-To see it in action, check out the sample app in `sample/`.
+**Set Text Change Listener:**
+
+```java
+RTextEditorView editor = (RTextEditorView) findViewById(R.id.editor_view);
+editor.setOnTextChangeListener(new RTextEditorView.OnTextChangeListener() {
+    @Override
+    public void onTextChanged(String content) {
+        Log.d("RTextEditorView", "onTextChanged: " + content);
+    }
+});
+```
+
+To see it in action, check out the sample app in `sample/` or download the sample [APK][rtexteditorview-releases].
 
 Credits
 ------
 
-* [RichEditor](https://github.com/wasabeef/richeditor-android/)
-* [MRichEditor](https://github.com/Even201314/MRichEditor/)
+* [RichEditor][richeditor]
+* [MRichEditor][mricheditor]
+* [Color Picker][color-picker]
 * [Google][google-materialicons] and [Austin Andrews][austin-andrews] for the Material Design Icons that I used in the sample app.
 
 License
@@ -172,10 +185,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+[android-arsenal-svg]: https://img.shields.io/badge/Android%20Arsenal-RTextEditorView-brightgreen.svg
+[android-arsenal]: https://android-arsenal.com/details/1/6207
 [jitpackbadge-svg]: https://jitpack.io/v/jkennethcarino/RTextEditorView.svg
 [jitpackbadge]: https://jitpack.io/#jkennethcarino/RTextEditorView
 [mitbadge-svg]: https://img.shields.io/badge/License-MIT-blue.svg
 [mitbadge]: https://github.com/jkennethcarino/RTextEditorView/blob/master/LICENSE
 [summernote]: https://github.com/summernote/summernote/
+[rtexteditorview-releases]: https://github.com/jkennethcarino/RTextEditorView/releases
+[richeditor]: https://github.com/wasabeef/richeditor-android/
+[mricheditor]: https://github.com/Even201314/MRichEditor/
+[color-picker]: https://github.com/jaredrummler/ColorPicker
 [google-materialicons]: https://material.io/icons/
 [austin-andrews]: https://twitter.com/Templarian
