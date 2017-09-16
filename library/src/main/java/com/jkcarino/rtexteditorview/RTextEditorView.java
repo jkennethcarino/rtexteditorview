@@ -128,7 +128,7 @@ public class RTextEditorView extends WebView {
     }
 
     public void setHtml(@NonNull String html) {
-        exec("javascript:setHtml(" + html + ");");
+        exec("javascript:setHtml('" + html + "');");
     }
 
     public String getHtml() {
@@ -252,7 +252,7 @@ public class RTextEditorView extends WebView {
     }
 
     public void insertText(@NonNull String text) {
-        exec("javascript:insertText(" + text + ");");
+        exec("javascript:insertText('" + text + "');");
     }
 
     public void editHtml() {
