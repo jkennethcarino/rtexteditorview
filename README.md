@@ -67,7 +67,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    compile 'com.github.jkennethcarino:RTextEditorView:0.1.0'
+    compile 'com.github.jkennethcarino:RTextEditorView:0.1.1'
 }
 ```
 
