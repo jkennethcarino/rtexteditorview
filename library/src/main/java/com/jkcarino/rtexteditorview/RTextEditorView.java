@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -179,7 +180,7 @@ public class RTextEditorView extends WebView {
         exec("javascript:setSubscript()");
     }
 
-    public void setTextColor(int color) {
+    public void setTextColor(@ColorInt int color) {
         setTextColor(String.format("#%06X", (0xFFFFFF & color)));
     }
 
@@ -187,7 +188,7 @@ public class RTextEditorView extends WebView {
         exec("javascript:setTextForeColor('" + hexColor + "');");
     }
 
-    public void setTextBackgroundColor(int color) {
+    public void setTextBackgroundColor(@ColorInt int color) {
         setTextBackgroundColor(String.format("#%06X", (0xFFFFFF & color)));
     }
 
