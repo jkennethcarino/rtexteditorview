@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.jkcarino.rtexteditorview.sample"
         minSdkVersion 15
@@ -34,5 +33,5 @@ dependencies {
     implementation 'com.android.support:support-vector-drawable:26.1.0'
     implementation 'com.jaredrummler:colorpicker:1.0.1'
 
-    compile project(':library')
+    implementation project(':library')
 }
