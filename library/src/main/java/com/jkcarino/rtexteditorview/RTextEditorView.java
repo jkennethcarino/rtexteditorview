@@ -4,6 +4,7 @@ package com.jkcarino.rtexteditorview;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
@@ -21,15 +22,23 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import static android.util.LayoutDirection.LTR;
+
 public class RTextEditorView extends WebView {
 
-    private static final String ASSETS_EDITOR_HTML = "file:///android_asset/editor.html";
+    public static final int LTR = 0;
+    public static final int RTL = 1;
 
+    private static final String LTR_ASSETS_EDITOR_HTML = "file:///android_asset/editor.html";
+    private static final String RTL_ASSETS_EDITOR_HTML = "file:///android_asset/rtl_editor.html";
+
+    private String assetsEditorHTML = LTR_ASSETS_EDITOR_HTML;
     private boolean isReady;
 
     private boolean isIncognitoModeEnabled;
     private String content;
     private OnTextChangeListener onTextChangeListener;
+    private int pageDirection = LTR;
 
     public interface OnTextChangeListener {
         void onTextChanged(String content);
@@ -39,8 +48,19 @@ public class RTextEditorView extends WebView {
         super(context);
     }
 
+    public RTextEditorView(Context context, int pageDirection) {
+        super(context);
+        this.pageDirection = pageDirection;
+    }
+
     public RTextEditorView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.RTextEditorView);
+        try {
+            pageDirection = array.getInt(R.styleable.RTextEditorView_pageDirection, LTR);
+        } finally {
+            array.recycle();
+        }
         init();
     }
 
@@ -59,7 +79,11 @@ public class RTextEditorView extends WebView {
         setWebChromeClient(new WebChromeClient());
         setWebViewClient(new RTextEditorWebViewClient());
         addJavascriptInterface(this, "RTextEditorView");
-        loadUrl(ASSETS_EDITOR_HTML);
+
+        if (pageDirection == RTL) {
+            assetsEditorHTML = RTL_ASSETS_EDITOR_HTML;
+        }
+        loadUrl(assetsEditorHTML);
     }
 
     @Override
@@ -164,7 +188,7 @@ public class RTextEditorView extends WebView {
         exec("javascript:setNormal();");
     }
 
-    public void setHeading(@IntRange(from=1,to=6) int value) {
+    public void setHeading(@IntRange(from = 1, to = 6) int value) {
         exec("javascript:setHeading('" + value + "');");
     }
 
@@ -360,7 +384,8 @@ public class RTextEditorView extends WebView {
             load(trigger);
         } else {
             postDelayed(new Runnable() {
-                @Override public void run() {
+                @Override
+                public void run() {
                     exec(trigger);
                 }
             }, 100);
@@ -379,7 +404,7 @@ public class RTextEditorView extends WebView {
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            isReady = url.equalsIgnoreCase(ASSETS_EDITOR_HTML);
+            isReady = url.equalsIgnoreCase(assetsEditorHTML);
             super.onPageFinished(view, url);
         }
 
