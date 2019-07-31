@@ -2,10 +2,11 @@ package com.jkcarino.rtexteditorview;
 
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.LinearLayoutCompat;
 
 public class RTextEditorToolbar extends LinearLayoutCompat {
 

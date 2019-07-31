@@ -54,6 +54,10 @@ var setFontSize = function(size) {
     $('#summernote').summernote('fontSize', size);
 };
 
+//var setFontName = function(name){
+//    $('#summernote').summernote('fontName', name);
+//};
+
 var setNormal = function() {
     $('#summernote').summernote('formatPara');
 };
@@ -155,3 +159,110 @@ var insertText = function(text) {
 var editHtml = function() {
     $('#summernote').summernote('codeview.toggle');
 };
+
+var insertOrSurround = function(before, after) {
+        var div = document.createElement("span");
+        div.innerHTML = before + getSelectionHtml() + after;
+        $('#summernote').summernote('insertNode', div);
+};
+
+function getSelectionHtml() {
+    var html = "";
+    if (typeof window.getSelection != "undefined") {
+        var sel = window.getSelection();
+        if (sel.rangeCount) {
+            var container = document.createElement("div");
+            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+                container.appendChild(sel.getRangeAt(i).cloneContents());
+            }
+            html = container.innerHTML;
+        }
+    } else if (typeof document.selection != "undefined") {
+        if (document.selection.type == "Text") {
+            html = document.selection.createRange().htmlText;
+        }
+    }
+    return html;
+}
+
+var insertHTML = function(html){
+    var div = document.createElement('div');
+    div.innerHTML = html;
+    var node = div.firstChild;
+    $('#summernote').summernote('insertNode', node);
+};
+
+//    var range, divBef, divAft, nodeBef, nodeAft, emptyNode;
+//
+//            divBef = document.createElement("div");
+//            divBef.innerHTML = before;
+//            nodeBef = divBef.firstChild;
+//
+//            divAft = document.createElement("div");
+//            divAft.innerHTML = after;
+//            nodeAft = divAft.firstChild;
+//
+//            range = window.getSelection().getRangeAt(0);
+//
+//            range.insertNode(nodeBef);
+//            range.collapse(false);
+//
+//            range.insertNode(nodeAft);
+//            range.collapse(false);
+//
+//            range = window.getSelection().getRangeAt(0);
+//            range.collapse(true);
+//
+//            $('#summernote').summernote('insertText', '');
+
+
+//        var rangeText = window.getSelection().toString();
+//        $('#summernote').summernote('insertText', before + rangeText + after);
+
+
+//        var rangeText = window.getSelection().getRangeAt(0);
+//        rangeText.deleteContents();
+//        rangeText.insertNode(node);
+//        rangeText.collapse(true);
+//        rangeText.insertNode(node);
+
+//var insertOrSurround2 = function(before, after) {
+//    var sel, range, node, nodee;
+//    if (window.getSelection) {
+//        sel = window.getSelection();
+//        if (sel.getRangeAt && sel.rangeCount) {
+//
+//            // Range.createContextualFragment() would be useful here but was
+//            // until recently non-standard and not supported in all browsers
+//            // (IE9, for one)
+//            var el = document.createElement("div");
+//            el.innerHTML = before;
+//            var frag = document.createDocumentFragment(), node, lastNode;
+//            while ((node = el.firstChild)) {
+//                lastNode = frag.appendChild(node);
+//            }
+//
+//            var ell = document.createElement("div");
+//            ell.innerHTML = after;
+//            var frage = document.createDocumentFragment(), nodee, lastNodee;
+//            while ((nodee = ell.firstChild)) {
+//                lastNodee = frage.appendChild(nodee);
+//            }
+//
+//            range = window.getSelection().getRangeAt(0);
+//            range.insertNode(frag);
+//            range.collapse(false);
+//
+//            range.insertNode(frage);
+//            range.collapse(false);
+//            $('#summernote').summernote('insertText', '');
+//        }
+//    } else if (document.selection && document.selection.createRange) {
+//        range = document.selection.createRange();
+//        range.pasteHTML(before);
+//        range.collapse(false);
+//        range.pasteHTML(after);
+//        range.collapse(false);
+//        $('#summernote').summernote('insertText', '');
+//    }
+//};
