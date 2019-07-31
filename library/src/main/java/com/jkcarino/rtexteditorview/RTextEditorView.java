@@ -5,11 +5,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v13.view.inputmethod.EditorInfoCompat;
+
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -20,6 +16,15 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.inputmethod.EditorInfoCompat;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RTextEditorView extends WebView {
 
@@ -160,6 +165,10 @@ public class RTextEditorView extends WebView {
         exec("javascript:setFontSize(" + sizeInPx + ");");
     }
 
+//    public void setFontName(String name) {
+//        exec("javascript:setFontName(" + name + ");");
+//    }
+
     public void setNormal() {
         exec("javascript:setNormal();");
     }
@@ -258,6 +267,55 @@ public class RTextEditorView extends WebView {
 
     public void editHtml() {
         exec("javascript:editHtml();");
+    }
+
+    public void insertOrSurround(String before, String after) {
+        exec("javascript:insertOrSurround('" + before + "','" + after + "');");
+    }
+
+    public void insertHTML(String htmlText) {
+        exec("javascript:insertHTML('" + htmlText + "');");
+    }
+
+    public void insertImage(String src,@Nullable String alt, int width, int height) {
+        StringBuilder builder = new StringBuilder("<img src=\"");
+        builder.append(src).append("\" ");
+        if (alt != null) builder.append("alt=\"").append(alt).append("\" ");
+        if(width != 0) builder.append("width=\"").append(width).append("\" ");
+        if(height != 0) builder.append("height=\"").append(height).append("\" ");
+        builder.append(">");
+        insertHTML(builder.toString());
+    }
+
+    public void insertYoutube(String url) {
+        final String beforeId = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/";
+        final String afterId = "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>&nbsp;<br>&nbsp;<br>&nbsp;<br>";
+        String id = getValueFromUrlString("v=", url);
+        if(id == null || id.equals("")) {
+//            if (Pattern.matches(".*youtu\\.be/\\w+", url)) {
+//                Pattern pattern = Pattern.compile("youtu\\.be/\\w*");
+//                Matcher matcher = pattern.matcher(url);
+//                int start = matcher.start();
+//                int end = matcher.end();
+//                id = url.substring(start, end).replace("youtu.be/", "");
+//            } else {
+//                return;
+//            }
+            id = getValueFromUrlString("be/", url);
+            if(id == null || id.equals("")) return;
+        }
+        insertHTML(beforeId + id + afterId);
+    }
+
+    private static String getValueFromUrlString (String fieldName, String url) {
+        Pattern pattern = Pattern.compile(fieldName + "\\w*");
+        Matcher matcher = pattern.matcher(url);
+        if (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            return url.substring(start, end).replace(fieldName , "");
+        }
+        return null;
     }
 
     public void setFormat(@ToolType int type) {

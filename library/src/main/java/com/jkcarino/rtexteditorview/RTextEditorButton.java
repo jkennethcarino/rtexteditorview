@@ -3,8 +3,9 @@ package com.jkcarino.rtexteditorview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatImageButton;
 
 public class RTextEditorButton extends AppCompatImageButton {
 
